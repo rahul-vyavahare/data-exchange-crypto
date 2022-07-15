@@ -11,7 +11,7 @@ function App() {
     const [data, setData] = React.useState([]);
     const [symbol, setSymbol] = React.useState([]);
     React.useEffect( () => {
-         fetch("https://api.delta.exchange/v2/products")
+        fetch("https://cors-anywhere.herokuapp.com/https://api.delta.exchange/v2/products")
             .then((res) => res.json())
             .then((res) => {
                 setData(res.result);
@@ -49,7 +49,7 @@ function App() {
                 if ((jsn.mark_price) && [...data].length > 0) {
 
                     document.getElementById('' + jsn.symbol).innerHTML = "" + jsn.mark_price;
-                    
+                    debugger
                     
                 }
 
@@ -60,8 +60,8 @@ function App() {
         };
 
         //clean up function
-        return () => ws.close();
-    }, [symbol]);
+      //  return () => ws.close();
+    }, [symbol, ws.onmessage]);
 
 
     return (
