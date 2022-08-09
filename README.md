@@ -1,3 +1,32 @@
+Created a table that shows the following data.   
+
+
+
+Symbol
+Description
+Underlying Asset
+Mark Price
+
+
+
+Usinge the API https://api.delta.exchange/v2/products to fetch the initial data required.  only the first 3 columns from this API 
+These are the field names respectively symbol, description, underlying_asset.symbol 
+
+Mark Price has to update from a socket channel. 
+Created a socket connection using the URL wss://production-esocket.delta.exchange. 
+After a successful connection, subscribe to a channel called v2/ticker. 
+Inorder to make a successful subscription, you will have to send the array of product symbols as the payload (Ex: {name: "v2/ticker", symbols: ["BTCUSD", "BTCUSDT"]}). 
+You will then get the required data, you can use a field called mark_price in the response. 
+You can refer to the documentation for more information https://docs.delta.exchange/#v2-ticker 
+
+The first column of the table and the header has to be sticky on scroll
+
+due to CORS issue from delta.exchange server its not working on deployed app but its working on lochalhost
+ link for working localhost app
+
+https://drive.google.com/file/d/1r44qgRrKUCINEAiUwmou4UCvhZUXmFkL/view?usp=sharing
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
